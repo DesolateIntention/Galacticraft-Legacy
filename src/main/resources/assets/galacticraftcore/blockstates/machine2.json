@@ -75,6 +75,26 @@
                         "top": "galacticraftcore:blocks/machine",
                         "base": "galacticraftcore:blocks/machine"  }
             }
+        },
+
+        "fill_value" : {
+            "0": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module", "rear": "galacticraftcore:blocks/oxygen_storage_module"  }},
+            "1": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_1", "rear": "galacticraftcore:blocks/oxygen_storage_module_1"  }},
+            "2": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_2", "rear": "galacticraftcore:blocks/oxygen_storage_module_2"  }},
+            "3": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_3", "rear": "galacticraftcore:blocks/oxygen_storage_module_3"  }},
+            "4": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_4", "rear": "galacticraftcore:blocks/oxygen_storage_module_4"  }},
+            "5": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_5", "rear": "galacticraftcore:blocks/oxygen_storage_module_5"  }},
+            "6": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_6", "rear": "galacticraftcore:blocks/oxygen_storage_module_6"  }},
+            "7": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_7", "rear": "galacticraftcore:blocks/oxygen_storage_module_7"  }},
+            "8": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_8", "rear": "galacticraftcore:blocks/oxygen_storage_module_8"  }},
+            "9": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_9", "rear": "galacticraftcore:blocks/oxygen_storage_module_9"  }},
+            "10": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_10", "rear": "galacticraftcore:blocks/oxygen_storage_module_10"  }},
+            "11": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_11", "rear": "galacticraftcore:blocks/oxygen_storage_module_11"  }},
+            "12": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_12", "rear": "galacticraftcore:blocks/oxygen_storage_module_12"  }},
+            "13": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_13", "rear": "galacticraftcore:blocks/oxygen_storage_module_13"  }},
+            "14": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_14", "rear": "galacticraftcore:blocks/oxygen_storage_module_14"  }},
+            "15": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_15", "rear": "galacticraftcore:blocks/oxygen_storage_module_15"  }},
+            "16": { "textures": { "front": "galacticraftcore:blocks/oxygen_storage_module_full", "rear": "galacticraftcore:blocks/oxygen_storage_module_full"  }}
         }
     }
 }

@@ -14,6 +14,7 @@ import micdoodle8.mods.galacticraft.core.tile.TileEntityDeconstructor;
 import micdoodle8.mods.galacticraft.core.tile.TileEntityElectricIngotCompressor;
 import micdoodle8.mods.galacticraft.core.tile.TileEntityOxygenStorageModule;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
@@ -21,6 +22,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 public class BlockMachine2 extends BlockMachineBase
 {
@@ -28,6 +30,7 @@ public class BlockMachine2 extends BlockMachineBase
     public static final PropertyEnum<EnumMachineExtendedType> TYPE = PropertyEnum.create("type", EnumMachineExtendedType.class);
     public static IMachineSidesProperties MACHINESIDES_RENDERTYPE = IMachineSidesProperties.TWOFACES_HORIZ;
     public static final PropertyEnum SIDES = MACHINESIDES_RENDERTYPE.asProperty;
+    public static final PropertyInteger FILL_VALUE = PropertyInteger.create("fill_value", 0, 16);
 
     public enum EnumMachineExtendedType implements EnumMachineBase, IStringSerializable
     {
@@ -111,6 +114,14 @@ public class BlockMachine2 extends BlockMachineBase
     }
 
     @Override
+    public TileEntity createTileEntity(World world, IBlockState state)
+    {
+        TileEntity tile = super.createTileEntity(world, state);
+        tile.setWorld(world);
+        return tile;
+    }
+
+    @Override
     public IBlockState getStateFromMeta(int meta)
     {
         EnumFacing enumfacing = EnumFacing.byHorizontalIndex(meta % 4);
@@ -127,13 +138,19 @@ public class BlockMachine2 extends BlockMachineBase
     @Override
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, FACING, TYPE, SIDES);
+        return new BlockStateContainer(this, FACING, TYPE, FILL_VALUE, SIDES);
     }
 
     @Override
     public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
         TileEntity tile = worldIn.getTileEntity(pos);
-        return IMachineSides.addPropertyForTile(state, tile, MACHINESIDES_RENDERTYPE, SIDES);
+        state = IMachineSides.addPropertyForTile(state, tile, MACHINESIDES_RENDERTYPE, SIDES);
+        if (!(tile instanceof TileEntityOxygenStorageModule))
+        {
+            return state.withProperty(FILL_VALUE, 0);
+        }
+        int oxygenLevel = ((TileEntityOxygenStorageModule) tile).scaledOxygenLevel;
+        return state.withProperty(FILL_VALUE, oxygenLevel);
     }
 }
